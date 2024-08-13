@@ -1,4 +1,3 @@
-// src/components/Button/index.js
-import Button from './Button.jsx'; // Include the extension if necessary
+import Button from './Button.jsx'; 
 
 export default Button;

@@ -1,7 +1,6 @@
-// src/demo/App.jsx
 import React from 'react';
-import { Button } from '../index'; // Import from your library
-import './index.css'; // Import demo-specific styles
+import { Button } from '../index'; 
+import './index.css'; 
 
 const App = () => (
   <div className="App">
