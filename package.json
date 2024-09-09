@@ -10,7 +10,7 @@
     "start": "rollup -c -w"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "url": "git+https://github.com/KhushbuKumawat/react-npm-package.git"
