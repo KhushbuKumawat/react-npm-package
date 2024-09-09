@@ -1,5 +1,5 @@
 {
-  "name": "react-component-library",
+  "name": "coindelta-react-component-library",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,12 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "git+https://github.com/KhushbuKumawat/react-npm-package.git"
   },
   "keywords": [],
   "author": "",

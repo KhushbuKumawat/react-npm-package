@@ -1,19 +1,6 @@
-// import React from 'react';
-
-// const Button = ({ children, ...props }) => {
-//   return (
-//     <button className="btn" {...props}>
-//       {children}
-//     </button>
-//   );
-// };
-
-// export default Button;
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Utility function to handle conditional styles based on props
 const getButtonStyles = ({ size, color, fullWidth, loading }) => {
   const baseStyles = {
     display: 'inline-flex',
@@ -51,7 +38,7 @@ const Button = ({
   loadingIndicator,
   ...props
 }) => {
-  const styles = getButtonStyles({ size, color, fullWidth, loading });
+const styles = getButtonStyles({ size, color, fullWidth, loading });
 
   return (
     <button
