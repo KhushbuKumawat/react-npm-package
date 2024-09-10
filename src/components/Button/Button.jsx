@@ -27,7 +27,7 @@ const getButtonStyles = ({ size, color, fullWidth, loading }) => {
   return { ...baseStyles, ...loadingStyles };
 };
 
-const Button = ({
+export function Button ({
   children,
   color = 'primary',
   size = 'md',
@@ -37,7 +37,7 @@ const Button = ({
   loading = false,
   loadingIndicator,
   ...props
-}) => {
+}) {
 const styles = getButtonStyles({ size, color, fullWidth, loading });
 
   return (
@@ -67,4 +67,4 @@ Button.propTypes = {
   ...PropTypes.object, // Allows for other props to be passed
 };
 
-export default Button;
+// export default Button;

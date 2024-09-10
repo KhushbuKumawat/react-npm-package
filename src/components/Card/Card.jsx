@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Card() {
+export  function Card() {
   return (
     <section className="bg-gray-2 pb-10 pt-20 lg:pb-20 lg:pt-[120px] dark:bg-dark">
       <div className="container mx-auto">
@@ -9,11 +9,10 @@ export default function Card() {
             <div
               className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-dark-2 dark:shadow-card dark:hover:shadow-3"
             >
-              <Image
-                src="../images/cards/card-01/image-01.jpg"
+              <img
+                src="/public/Hydrangeas.jpg"
                 alt="image"
                 className="w-full"
-                height={100} width={100}
               />
               <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
                 <h3>
@@ -44,11 +43,10 @@ export default function Card() {
             <div
               className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-dark-2 dark:shadow-card dark:hover:shadow-3"
             >
-              <Image
-                src="../images/cards/card-01/image-02.jpg"
+              <img
+                src="/public/Hydrangeas.jpg"
                 alt="image"
                 className="w-full"
-                height={100} width={100}
               />
               <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
                 <h3>
@@ -77,11 +75,10 @@ export default function Card() {
             <div
               className="mb-10 overflow-hidden rounded-lg bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-dark-2 dark:shadow-card dark:hover:shadow-3"
             >
-              <Image
-                src="../images/cards/card-01/image-03.jpg"
+              <img
+                src="/public/Hydrangeas.jpg"
                 alt="image"
                 className="w-full"
-                height={100} width={100}
               />
               <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
                 <h3>
