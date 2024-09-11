@@ -1,7 +1,7 @@
 {
   "name": "coindelta-react-component-library",
   "version": "1.3.0",
-  "description": "",
+  "description": "Created library for reusability of component",
   "main": "dist/index.js", 
   "module": "dist/index.esm.js",
   "type": "module",
@@ -21,7 +21,7 @@
 ],
 "exports": {
   ".": {
-    "require": "./dist/index.esm.js",
+    "require": "./dist/index.js",
     "import": "./dist/index.esm.js"
   }
 }

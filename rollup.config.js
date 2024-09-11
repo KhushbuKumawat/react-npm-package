@@ -16,10 +16,11 @@ export default defineConfig({
     },
     {
       file: 'dist/index.esm.js',
-      format: 'es',
+      format: 'esm',
       sourcemap: true,
     },
   ],
+  external: ['react', 'react-dom'] ,
   plugins: [
     peerDepsExternal(),
     resolve(),
