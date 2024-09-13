@@ -1,5 +1,5 @@
 import React from "react";
-import "./processloading.css";
+import "./proccessloading.css";
 function ProcessLoading({ ismessage }) {
   return (
     <div className="container" >

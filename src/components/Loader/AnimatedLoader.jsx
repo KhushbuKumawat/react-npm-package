@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./animatedloading.css";
+import "./animatedLoader.css";
 import Modal from "@mui/material/Modal";
 import ProcessLoading from "./ProcessLoading";
 // import SquLoader from "./squerLoader";
