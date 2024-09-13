@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
 
-export default function page() {
+export function page() {
   return (
     <div className="section-padding-x py-11 mt-6">
       <section className="grid xl:grid-cols-2 grid-cols-1 rounded-xl mb-7 overflow-hidden">

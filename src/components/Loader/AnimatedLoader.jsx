@@ -3,7 +3,7 @@ import "./animatedLoader.css";
 import Modal from "@mui/material/Modal";
 import ProcessLoading from "./ProcessLoading";
 // import SquLoader from "./squerLoader";
-export default function AnimatedLoading({ open, setOpen, check, ismessage }) {
+export function AnimatedLoading({ open, setOpen, check, ismessage }) {
   const handleClose = () => setOpen(false);
 const Loader = "https://lottie.host/?file=6119b4d9-326d-4372-82ca-a840779ee4d9/s03lbJ5tZT.lottie"
   useEffect(() => {

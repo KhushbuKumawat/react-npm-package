@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-export default function SwipeableTemporaryDrawer({ setHideLogo, hideLogo }) {
+export function SwipeableTemporaryDrawer({ setHideLogo, hideLogo }) {
   // const [isConsultingServicesOpen, setIsConsultingServicesOpen] =
   //   React.useState(true);
   const [isServicesDropDownOpen, setIsServicesDropDownOpen] =

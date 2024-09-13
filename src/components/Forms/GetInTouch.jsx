@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 import ApiService from "../../services/ApiService";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-export default function Getintouch() {
+export function Getintouch() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

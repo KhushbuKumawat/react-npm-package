@@ -14,7 +14,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-export default function JoinNow() {
+export function JoinNow() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");

@@ -6,7 +6,7 @@ import Link from "next/link";
 import JoinOurTeam from "@/component/cards/JoinOurTeamNew";
 import { usePathname } from "next/navigation";
 
-export default function Footer() {
+export function Footer() {
   const pathname = usePathname();
   const ref = useRef(null);
   const [isMouseIn, setIsMouseIn] = useState("");

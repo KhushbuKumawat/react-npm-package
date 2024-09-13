@@ -11,7 +11,7 @@ import { useOutsideAlerter } from "@/hooks/useOutsideAlerter.js";
 // import { BarLoader } from "react-spinners";
 import Icons from "../icons.js";
 
-export default function Header() {
+export function Header() {
   const pathname = usePathname();
   const [hideLogo, setHideLogo] = useState(false);
   const [isServicesDropDownOpen, setIsServicesDropDownOpen] = useState(false);
