@@ -104,7 +104,6 @@ We welcome contributions! If you want to help improve the library, please follow
 5. Push to the branch (`git push origin feature/your-feature`).
 6. Create a new Pull Request.
 
-Please make sure to follow the [Code of Conduct](CODE_OF_CONDUCT.md) and adhere to the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
