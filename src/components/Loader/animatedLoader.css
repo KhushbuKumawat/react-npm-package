@@ -1,0 +1,11 @@
+html, body, .loader-container {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+    .loader-container {
+    position: relative;
+    background-color:#0C0019;
+    opacity: 0.8;
+  }
