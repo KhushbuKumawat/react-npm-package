@@ -1,20 +1,18 @@
-"use client";
 import React from "react";
 import { useState } from "react";
-import Icons from "./../icons";
-import {
-  TextField,
-  Select,
-  FormControl,
-  MenuItem,
-  InputLabel,
-  Checkbox,
-} from "@mui/material";
+// import Icons from "./../icons";
+// import {
+//   TextField,
+//   Select,
+//   FormControl,
+//   MenuItem,
+//   InputLabel,
+//   Checkbox,
+// } from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
-import axios from "axios";
-import Link from "next/link";
-import { toast } from "react-toastify";
-import ApiService from "../../services/ApiService";
+// import axios from "axios";
+// import Link from "next/link";
+// import ApiService from "../../services/ApiService";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export function Getintouch() {
@@ -113,55 +111,51 @@ export function Getintouch() {
         what_describes_you: discribeType,
         mobile_no: number,
       };
-      axios
-        .post(
-          "https://ikxl2f3jzh6cufqtr3hbwepnmm0meelh.lambda-url.us-west-2.on.aws/",
-          data
-        )
-        .then(() => {
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-          setmessage("");
-          setCompany("");
-          setcomunicationMethod("Phone Number");
-          setdiscribeType("Individual Investor");
-          setNumber("");
-          toast.success("Thanks for reaching out. We'll get back to you soon!");
-        })
-        .catch((error) => {
-          console.log(error);
-          toast.error("Something is wrong!");
-        });
+      // axios
+      //   .post(
+      //     "https://ikxl2f3jzh6cufqtr3hbwepnmm0meelh.lambda-url.us-west-2.on.aws/",
+      //     data
+      //   )
+      //   .then(() => {
+      //     setFirstName("");
+      //     setLastName("");
+      //     setEmail("");
+      //     setmessage("");
+      //     setCompany("");
+      //     setcomunicationMethod("Phone Number");
+      //     setdiscribeType("Individual Investor");
+      //     setNumber("");
+      //     toast.success("Thanks for reaching out. We'll get back to you soon!");
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //     toast.error("Something is wrong!");
+      //   });
 
-      ApiService.post("api/get-in-touches", { data })
-        .then(() => {
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-          setmessage("");
-          setCompany("");
-          setcomunicationMethod("Phone Number");
-          setdiscribeType("Individual Investor");
-          setNumber("");
-        })
-        .catch((error) => {
-          console.log(error);
-          toast.error("Something is wrong!");
-        });
+      // ApiService.post("api/get-in-touches", { data })
+      //   .then(() => {
+      //     setFirstName("");
+      //     setLastName("");
+      //     setEmail("");
+      //     setmessage("");
+      //     setCompany("");
+      //     setcomunicationMethod("Phone Number");
+      //     setdiscribeType("Individual Investor");
+      //     setNumber("");
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //     toast.error("Something is wrong!");
+      //   });
     }
   };
   return (
-    <div
-      className="mt-11 bg-[#F4F6FA]"
-      
-    >
-      
+    <div className="mt-11 bg-[#F4F6FA]">
       <section className="grid grid-cols-12 rounded-xl mb-7 overflow-hidden p-[30px]">
         <div className="xl:pt-16 lg:pt-16 pt-4 lg:px-16 px-8 pb-10 xl:col-span-5 col-span-12 border-2">
-        <h2 className="leading-[45px] pb-2 text-[#000] md:text-[50px] text-[40px] font-bold">
-          Get In <span className="text-[#28118A]"> Touch</span>
-        </h2>
+          <h2 className="leading-[45px] pb-2 text-[#000] md:text-[50px] text-[40px] font-bold">
+            Get In <span className="text-[#28118A]"> Touch</span>
+          </h2>
           <div
             className="flex md:flex-row lg:flex-row xl:flex-row flex-col md:mt-[43px] p-4"
             style={{
@@ -170,9 +164,9 @@ export function Getintouch() {
               boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
             }}
           >
-            <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
+            {/* <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
               <Icons name="message-icon" />
-            </span>
+            </span> */}
             <div className="mx-[0px] md:mx-[10px] lg:mx-[10px] xl:mx-[10px] lg:my-[0px] my-[10px]">
               <h3 className="text-[#28118A] text-[22px] font-semibold">
                 General Inquiries
@@ -191,9 +185,9 @@ export function Getintouch() {
               boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
             }}
           >
-            <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
+            {/* <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
               <Icons name="press-icon" />
-            </span>
+            </span> */}
             <div className="mx-[0px] md:mx-[10px] lg:mx-[10px] xl:mx-[10px] lg:my-[0px] my-[10px]">
               <h3 className="text-[#28118A] text-[22px] font-semibold ">
                 Media Inquiries
@@ -211,9 +205,9 @@ export function Getintouch() {
               boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
             }}
           >
-            <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
+            {/* <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
               <Icons name="location-icon" />
-            </span>
+            </span> */}
             <div className="mx-[0px] md:mx-[10px] lg:mx-[10px] xl:mx-[10px] lg:my-[0px] my-[10px] ">
               <h3 className="text-[#28118A] text-[22px] font-semibold ">
                 Location
@@ -324,61 +318,7 @@ export function Getintouch() {
                 <MenuItem value={"Email Prefer"}>Email</MenuItem>
               </Select>
             </FormControl>
-            <div className="grid xl:grid-cols-2 grid-cols-1 gap-4 my-6">
-              <div className="">
-                <MuiPhoneNumber
-                  fullWidth
-                  variant="outlined"
-                  defaultCountry="us"
-                  label="Phone Number"
-                  value={number}
-                  name="number"
-                  id="number"
-                  style={{
-                    borderRadius: "8px",
-                    background: "#ECE9F5",
-                    boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                  }}
-                  onChange={handleChangePhoneNumber}
-                />
-                <div className="text-[12px] text-red-500">
-                  {error.PhoneNumber}
-                </div>
-              </div>
-              <div className="">
-                <FormControl
-                  className="w-full"
-                  style={{
-                    borderRadius: "8px",
-                    background: "#ECE9F5",
-                    boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                  }}
-                >
-                  <InputLabel id="discribeTypelabel">
-                    Which best describes you?
-                  </InputLabel>
-                  <Select
-                    className="overflow-hidden bg-white-100"
-                    label=" Which best describes you?"
-                    name="discribeType"
-                    type="text"
-                    id="discribeTypeid"
-                    defaultValue="Individual Investor"
-                    onChange={handleChange}
-                  >
-                    <MenuItem value={"Individual Investor"}>
-                      Individual Investor
-                    </MenuItem>
-                    <MenuItem value={"Crypto or venture fund"}>
-                      Crypto or Venture Fund
-                    </MenuItem>
-                    <MenuItem value={"Exchange"}>Exchange</MenuItem>
-                    <MenuItem value={"Something else"}>Something Else</MenuItem>
-                  </Select>
-                </FormControl>
-                {/* <div className="text-[12px] text-red-500">{error.describe}</div> */}
-              </div>
-            </div>
+            
 
             <div className="flex flex-col">
               <TextField
@@ -409,7 +349,10 @@ export function Getintouch() {
                   <p>
                     By clicking submit, you agree with our{" "}
                     <span className="text-[#28118A]">
-                      <Link href="/privacy-policy" target="_blank">Privacy Policy</Link>.
+                      <a href="/privacy-policy" target="_blank">
+                        Privacy Policy
+                      </a>
+                      .
                     </span>
                   </p>
                 </div>

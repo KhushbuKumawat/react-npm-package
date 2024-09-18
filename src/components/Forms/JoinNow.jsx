@@ -1,18 +1,6 @@
-"use client";
 import React from "react";
 import { useState } from "react";
-// import Icons from "../../api/sendMail";
-import { TextField, Checkbox } from "@mui/material";
-import MuiPhoneNumber from "material-ui-phone-number";
-// import axios from "axios";
-import ApiService from "@/services/ApiService";
-import { toast } from "react-toastify";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 
 export function JoinNow() {
   const [fullName, setFullName] = useState("");
@@ -108,68 +96,9 @@ export function JoinNow() {
         contact_no: number,
       };
 
-      ApiService.post("api/affiliate-partnership-forms", { data })
-        .then(() => {
-          setFullName("");
-          setEmail("");
-          setCountry("");
-          setSelectedOption("");
-          setCompany("");
-          setWebsite("");
-          setLinkedin("");
-          setNumber("");
-          setmessage("");
-          toast.success("Thanks for reaching out. We'll get back to you soon!");
-        })
-        .catch((error) => {
-          console.log(error);
-          toast.error("Something is wrong!");
-        });
-      await fetch("/api/sendMail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
     }
-
-    //   const response = await fetch("/api/sendMail", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //     }),
-    //   });
-
-    //   const data = await response.json();
-
-    //   if (response.ok) {
-
-    //     alert('Email sent successfully');
-
-    // } else {
-    //     alert('Error sending email')
-    // }
-    //   console.log("data", response);
-    //   setEmailStatus(data.message);
   };
 
-  // const response = await fetch(`/api/contactwithmail`, {
-  //   method: "POST",
-  //   body: JSON.stringify(data),
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Accept: "application/json",
-  //   },
-  // });
-  // console.log(response);
-  // if (response.ok) {
-  //   alert("Email sent successfully");
-  // } else {
-  //   alert("Error sending email");
-  // }
 
   return (
     <div
@@ -191,7 +120,7 @@ export function JoinNow() {
           <div className="w-full cursor-pointer">
             <div className="grid grid-cols-1 gap-4 mb-6">
               <div className="">
-                <TextField
+                <div
                   id="fullName"
                   label="Full Name"
                   variant="outlined"
@@ -210,7 +139,7 @@ export function JoinNow() {
 
             <div className="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-6">
               <div className="">
-                <TextField
+                <div
                   label="Email"
                   variant="outlined"
                   name="email"
@@ -226,7 +155,7 @@ export function JoinNow() {
                 <div className="text-[12px] text-red-500">{error.Email}</div>
               </div>
               <div className="">
-                <TextField
+                <div
                   id="country"
                   label="Country"
                   name="country"
@@ -257,7 +186,7 @@ export function JoinNow() {
                   }}
                   onChange={handleChange}
                 /> */}
-                <FormControl>
+                {/* <FormControl>
                   <FormLabel
                     id="demo-row-radio-buttons-group-label"
                     className="font-bold"
@@ -284,12 +213,12 @@ export function JoinNow() {
                       onChange={handleOptionChange}
                     />
                   </RadioGroup>
-                </FormControl>
+                </FormControl> */}
                 <div className="text-[12px] text-red-500">
                   {error.SelectedOption}
                 </div>
               </div>
-              <div className="">
+              {/* <div className="">
                 <MuiPhoneNumber
                   fullWidth
                   variant="outlined"
@@ -308,7 +237,7 @@ export function JoinNow() {
                 <div className="text-[12px] text-red-500">
                   {error.PhoneNumber}
                 </div>
-              </div>
+              </div> */}
               <div className="">
                 <TextField
                   label="Company Name"

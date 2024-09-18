@@ -1,16 +1,15 @@
-"use client";
 import React from "react";
-import Image from "next/image";
-import {
-  TextField,
-  Select,
-  FormControl,
-  MenuItem,
-  InputLabel,
-} from "@mui/material";
+// import Image from "next/image";
+// import {
+//   TextField,
+//   Select,
+//   FormControl,
+//   MenuItem,
+//   InputLabel,
+// } from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
 
-export function page() {
+export function GetStarted() {
   return (
     <div className="section-padding-x py-11 mt-6">
       <section className="grid xl:grid-cols-2 grid-cols-1 rounded-xl mb-7 overflow-hidden">
@@ -44,7 +43,7 @@ export function page() {
             </svg>
           </span>
           <div className="mt-11">
-            <Image
+            <img
               // eslint-disable-next-line no-undef
               src={`${process.env.imageBasePath}/images/coindeltaLogo.png`}
               alt="Coindelta"

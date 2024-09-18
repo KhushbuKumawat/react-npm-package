@@ -1,23 +1,9 @@
-"use client";
 import { useRef, useState } from "react";
-import MobileHeader from "./MobileHeader.js";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import "bootstrap/dist/css/bootstrap.css";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import Link from "next/link.js";
-import { usePathname } from "next/navigation";
-import { useOutsideAlerter } from "@/hooks/useOutsideAlerter.js";
-// import { BarLoader } from "react-spinners";
-import Icons from "../icons.js";
 
 export function Header() {
-  const pathname = usePathname();
   const [hideLogo, setHideLogo] = useState(false);
   const [isServicesDropDownOpen, setIsServicesDropDownOpen] = useState(false);
-  const router = useRouter();
   const ref = useRef(null);
-  useOutsideAlerter(ref, isServicesDropDownOpen, setIsServicesDropDownOpen);
 
   return (
     <nav>
@@ -27,8 +13,8 @@ export function Header() {
       >
         <div className="container-padding-x w-full lg:block hidden">
           <div className="flex justify-between text-[18px]">
-            <Link href="/">
-              <Image
+            <a href="/">
+              <img
                 // eslint-disable-next-line no-undef
                 src={`${process.env.imageBasePath}/images/logo.webp`}
                 width={160}
@@ -36,9 +22,9 @@ export function Header() {
                 alt="coindelta-logo"
                 className="pt-[20px]"
               />
-            </Link>
+            </a>
             <div className="flex items-center justify-between w-[45%]">
-              <Link
+              <a
                 href="/"
                 className={
                   pathname === "/"
@@ -47,7 +33,7 @@ export function Header() {
                 }
               >
                 Home
-              </Link>
+              </a>
               {/* Services  */}
               <div className="group inline-block relative">
                 <button
@@ -91,135 +77,7 @@ export function Header() {
                     </span>
                   )}
                 </button>
-                {!isServicesDropDownOpen ? (
-                  // <ul
-                  //   // ref={ref}
-                  //   style={{borderRadius:'0px 0px 30px 30px',boxShadow:'0px 6px 30px 0px rgba(47, 50, 65, 0.20)'}}
-                  //   className="bg-white absolute top-[47px] transform scale-100 transition duration-150 ease-in-out origin-top min-w-[264px]"
-                  // >
-                  //   <li className="rounded-md relative px-3 py-2 hover:bg-gray-100">
-                  //     <button
-                  //       type="button"
-                  //       className="w-full text-left flex items-center outline-none focus:outline-none"
-                  //     >
-                  //       <span className="w-full text-left flex items-center outline-none focus:outline-none">
-                  //         <div className="flex justify-start items-center">
-                  //           <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
-                  //          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  //             <path d="M16.9331 2.64444L14.5462 5.1256C11.8915 2.75434 7.81755 2.8935 5.33397 5.44021C2.85039 7.98692 2.85039 12.0252 5.33397 14.5719C7.81755 17.1186 11.8915 17.2578 14.5462 14.8865L16.9331 17.3582C15.072 19.0592 12.6319 20.0025 10.0997 20C5.58186 20.0021 1.61282 17.0299 0.38243 12.7234C-0.848033 8.41685 0.960084 3.82488 4.8089 1.48103C8.65771 -0.862906 13.6099 -0.387695 16.9331 2.64444ZM18.2235 13.3594C18.6799 13.3594 19.0499 13.726 19.0499 14.178C19.0499 14.6302 18.6799 14.9967 18.2235 14.9967C17.7672 14.9967 17.3972 14.6302 17.3972 14.178C17.3972 13.726 17.7672 13.3594 18.2235 13.3594ZM19.1735 10.5603C19.6299 10.5603 19.9999 10.9268 19.9999 11.3789C19.9982 11.8303 19.6292 12.1959 19.1735 12.1976C18.7172 12.1976 18.3472 11.831 18.3472 11.3789C18.3472 10.9268 18.7172 10.5603 19.1735 10.5603ZM10.0359 7.83345C11.2436 7.83345 12.2226 8.80337 12.2226 9.99975C12.2226 11.1962 11.2436 12.1661 10.0359 12.1661C8.82825 12.1661 7.84919 11.1962 7.84919 9.99975C7.84919 8.80337 8.82825 7.83345 10.0359 7.83345ZM16.7139 10.4658C17.1703 10.4658 17.5403 10.8323 17.5403 11.2844C17.5403 11.7366 17.1703 12.1031 16.7139 12.1031C16.2575 12.1031 15.8875 11.7366 15.8875 11.2844C15.8875 10.8323 16.2575 10.4658 16.7139 10.4658ZM16.7139 7.89962C17.1703 7.89962 17.5403 8.26609 17.5403 8.71823C17.5403 9.17038 17.1703 9.53693 16.7139 9.53693C16.2575 9.53693 15.8875 9.17038 15.8875 8.71823C15.8875 8.26609 16.2575 7.89962 16.7139 7.89962ZM19.1736 7.8052C19.63 7.8052 20 8.17167 20 8.62381C19.9983 9.07518 19.6293 9.44072 19.1736 9.44243C18.7173 9.44243 18.3473 9.07596 18.3473 8.62381C18.3473 8.17167 18.7173 7.8052 19.1736 7.8052ZM18.271 5.04998C18.7273 5.04998 19.0973 5.41653 19.0973 5.8686C19.0973 6.32074 18.7273 6.68729 18.271 6.68729C17.8146 6.68729 17.4446 6.32074 17.4446 5.8686C17.4446 5.41653 17.8146 5.04998 18.271 5.04998Z" fill="#2F3241"/>
-                  //           </svg>
-                  //           </span> 
-                  //           <span className="pr-1 flex-1 ">
-                  //             <Link
-                  //               href="/services/consulting-services"
-                  //               className="hover:text-[#28118A] text-[#2F3241] nav_bar_font text-[16px]"
-                  //             >
-                  //               Consulting Services
-                  //             </Link>
-                  //           </span>
-                  //         </div>
-                  //         <span className="mr-auto">
-                  //           <svg
-                  //             className="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                  //             xmlns="http://www.w3.org/2000/svg"
-                  //             viewBox="0 0 20 20"
-                  //           >
-                  //             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  //           </svg>
-                  //         </span>
-                  //       </span>
-                  //     </button>
-                  //     <ul
-                  //       onClick={() => setIsServicesDropDownOpen(false)}
-                  //       className="cursor-pointer bg-white rounded-md absolute top-[60px] right-[2px] transition duration-150 ease-in-out origin-top-left min-w-32"
-                  //     >
-                  //       <li className="px-[18px] py-2 hover:bg-gray-100 ">
-                  //         <div className="flex justify-start items-center">
-                  //           <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
-                  //             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  //               <path d="M7.5 0.625C7.5 0.45924 7.43415 0.300269 7.31694 0.183058C7.19973 0.0658481 7.04076 0 6.875 0C6.70924 0 6.55027 0.0658481 6.43306 0.183058C6.31585 0.300269 6.25 0.45924 6.25 0.625V2.5H5.625C4.7962 2.5 4.00134 2.82924 3.41529 3.41529C2.82924 4.00134 2.5 4.7962 2.5 5.625V6.25H0.625C0.45924 6.25 0.300269 6.31585 0.183058 6.43306C0.0658481 6.55027 0 6.70924 0 6.875C0 7.04076 0.0658481 7.19973 0.183058 7.31694C0.300269 7.43415 0.45924 7.5 0.625 7.5H2.5V9.375H0.625C0.45924 9.375 0.300269 9.44085 0.183058 9.55806C0.0658481 9.67527 0 9.83424 0 10C0 10.1658 0.0658481 10.3247 0.183058 10.4419C0.300269 10.5592 0.45924 10.625 0.625 10.625H2.5V12.5H0.625C0.45924 12.5 0.300269 12.5658 0.183058 12.6831C0.0658481 12.8003 0 12.9592 0 13.125C0 13.2908 0.0658481 13.4497 0.183058 13.5669C0.300269 13.6842 0.45924 13.75 0.625 13.75H2.5V14.375C2.5 15.2038 2.82924 15.9987 3.41529 16.5847C4.00134 17.1708 4.7962 17.5 5.625 17.5H6.25V19.375C6.25 19.5408 6.31585 19.6997 6.43306 19.8169C6.55027 19.9342 6.70924 20 6.875 20C7.04076 20 7.19973 19.9342 7.31694 19.8169C7.43415 19.6997 7.5 19.5408 7.5 19.375V17.5H9.375V19.375C9.375 19.5408 9.44085 19.6997 9.55806 19.8169C9.67527 19.9342 9.83424 20 10 20C10.1658 20 10.3247 19.9342 10.4419 19.8169C10.5592 19.6997 10.625 19.5408 10.625 19.375V17.5H12.5V19.375C12.5 19.5408 12.5658 19.6997 12.6831 19.8169C12.8003 19.9342 12.9592 20 13.125 20C13.2908 20 13.4497 19.9342 13.5669 19.8169C13.6842 19.6997 13.75 19.5408 13.75 19.375V17.5H14.375C15.2038 17.5 15.9987 17.1708 16.5847 16.5847C17.1708 15.9987 17.5 15.2038 17.5 14.375V13.75H19.375C19.5408 13.75 19.6997 13.6842 19.8169 13.5669C19.9342 13.4497 20 13.2908 20 13.125C20 12.9592 19.9342 12.8003 19.8169 12.6831C19.6997 12.5658 19.5408 12.5 19.375 12.5H17.5V10.625H19.375C19.5408 10.625 19.6997 10.5592 19.8169 10.4419C19.9342 10.3247 20 10.1658 20 10C20 9.83424 19.9342 9.67527 19.8169 9.55806C19.6997 9.44085 19.5408 9.375 19.375 9.375H17.5V7.5H19.375C19.5408 7.5 19.6997 7.43415 19.8169 7.31694C19.9342 7.19973 20 7.04076 20 6.875C20 6.70924 19.9342 6.55027 19.8169 6.43306C19.6997 6.31585 19.5408 6.25 19.375 6.25H17.5V5.625C17.5 4.7962 17.1708 4.00134 16.5847 3.41529C15.9987 2.82924 15.2038 2.5 14.375 2.5H13.75V0.625C13.75 0.45924 13.6842 0.300269 13.5669 0.183058C13.4497 0.0658481 13.2908 0 13.125 0C12.9592 0 12.8003 0.0658481 12.6831 0.183058C12.5658 0.300269 12.5 0.45924 12.5 0.625V2.5H10.625V0.625C10.625 0.45924 10.5592 0.300269 10.4419 0.183058C10.3247 0.0658481 10.1658 0 10 0C9.83424 0 9.67527 0.0658481 9.55806 0.183058C9.44085 0.300269 9.375 0.45924 9.375 0.625V2.5H7.5V0.625ZM11.2325 6.925L10.7125 8.75H12.6237C12.7187 8.75008 12.8117 8.77722 12.8919 8.82824C12.972 8.87925 13.0359 8.95203 13.0762 9.03807C13.1164 9.1241 13.1314 9.21982 13.1192 9.31402C13.107 9.40823 13.0683 9.49701 13.0075 9.57L9.685 13.5575C9.31875 13.995 8.615 13.62 8.7775 13.0725L9.31875 11.25H7.375C7.27979 11.2501 7.18652 11.223 7.10617 11.172C7.02581 11.1209 6.96171 11.0479 6.92141 10.9617C6.8811 10.8754 6.86626 10.7794 6.87863 10.685C6.89101 10.5906 6.93008 10.5017 6.99125 10.4288L10.3263 6.44375C10.6887 6.00875 11.3888 6.38 11.2338 6.925H11.2325Z" fill="#2F3241"/>
-                  //             </svg>
-                  //           </span>
-                  //           <span className="pr-1 flex-1 text-[16px]">
-                  //             <Link href="/services/consulting-services/blockchain-consulting" 
-                  //             className="hover:text-[#28118A] text-[#2F3241] nav_bar_font">
-                  //               {" "}
-                  //               Blockchain Consulting
-                  //             </Link>
-                  //           </span>
-                  //         </div>
-                  //       </li>
-                  //     </ul>
-                  //   </li>
-                  //   <li
-                  //     onClick={() => setIsServicesDropDownOpen(false)}
-                  //     className="rounded-md px-3 py-1 hover:bg-gray-100  cursor-pointer"
-                  //   >
-                  //     <div className="flex justify-start items-center">
-                  //       <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
-                  //         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  //           <path d="M6 20V17.7778H2C1.45 17.7778 0.979001 17.56 0.587001 17.1244C0.195002 16.6889 -0.000664969 16.1659 1.69779e-06 15.5556V2.22222C1.69779e-06 1.61111 0.196002 1.08778 0.588002 0.652224C0.980002 0.216668 1.45067 -0.000738854 2 1.88644e-06H18C18.55 1.88644e-06 19.021 0.21778 19.413 0.653335C19.805 1.08889 20.0007 1.61185 20 2.22222V15.5556C20 16.1667 19.804 16.69 19.412 17.1256C19.02 17.5611 18.5493 17.7785 18 17.7778H14V20H6ZM2.8 8.88889L5.4 6L4 4.44445L1.69779e-06 8.88889L4 13.3333L5.4 11.7778L2.8 8.88889ZM17.2 8.88889L14.6 11.7778L16 13.3333L20 8.88889L16 4.44445L14.6 6L17.2 8.88889Z" fill="#2F3241"/>
-                  //         </svg>
-                  //       </span>
-                  //       <span className="pr-1 flex-1 ">
-                  //         <Link
-                  //           href="/services/custom-software-development"
-                  //           className="hover:text-[#28118A] text-[#2F3241] nav_bar_font text-[16px]"
-                  //         >
-                  //           Custom Software Development
-                  //         </Link>
-                  //       </span>
-                  //     </div>
-                  //   </li>
-                  //   <li
-                  //     onClick={() => setIsServicesDropDownOpen(false)}
-                  //     className="rounded-md px-3 py-2 hover:bg-gray-100  cursor-pointer flex"
-                  //   >
-                  //     <div className="flex justify-start items-center">
-                  //       <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
-                  //        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="20" viewBox="0 0 17 20" fill="none">
-                  //           <path d="M4.476 0L8.951 3.418L7.241 8.949H1.71L0 3.42L4.476 0ZM4.476 20L0 16.582L1.71 11.051H7.242L8.951 16.581L4.476 20ZM17 12.968L11.739 14.765L8.487 10.06L11.739 5.355L17 7.152V12.968Z" fill="#2F3241"/>
-                  //         </svg>
-                  //       </span>
-                  //       <span className="pr-1 flex-1 ">
-                  //         <Link
-                  //           href="/services/ui-ux-services"
-                  //           className="hover:text-[#28118A] text-[#2F3241] nav_bar_font text-[16px]"
-                  //         >
-                  //           UI/UX Development
-                  //         </Link>
-                  //       </span>
-                  //     </div>
-                  //   </li>
-                  //   <li
-                  //     onClick={() => {
-                  //       router.push("/services/nft-development");
-                  //       setIsServicesDropDownOpen(false);
-                  //     }}
-                  //     className="rounded-md px-3 pt-1 pb-3 hover:bg-gray-100  cursor-pointer"
-                  //   >
-                  //     <div className="flex justify-start items-center">
-                  //       <span
-                  //         className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2"
-                  //       >
-                  //         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" fill="none">
-                  //           <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0009 0L19.9675 6.00828L20 18.025L10 24L0 18.025L0.0324623 5.94179L10.0009 0ZM0.636483 6.30683L0.605978 17.6615L10 23.2745L19.394 17.6615L19.3635 6.37127L9.99914 0.726088L0.636483 6.30683Z" fill="#2F3241"/>
-                  //           <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 5.92957L10 0.429565L19.5 6.42957V17.9296L10 23.4296L0.5 17.6807V5.92957ZM15.7213 10.9701V10.0767H12.3154V10.9701H13.482V14.6548H14.5546V10.9701H15.7213ZM11.99 10.0767V10.9701H10.196V11.9353H11.5383V12.8027H10.196V14.6548H9.12347V10.0767H11.99ZM7.27346 14.6548H8.34604V10.0767H7.27346V12.9135L5.47956 10.0767H4.40698V14.6548H5.47956V11.831L7.27346 14.6548Z" fill="#2F3241"/>
-                  //         </svg>
-                  //       </span>
-                  //       <span>
-                  //         <Link
-                  //           href="/services/nft-development"
-                  //           className="hover:text-[#28118A] text-[#2F3241] nav_bar_font text-[16px]"
-                  //         >
-                  //           NFT Development
-                  //         </Link>
-                  //       </span>
-                  //     </div>
-                  //   </li>
-                  // </ul>
-                  <></>
-                ) : (
+              
                   <ul
                   ref={ref}
                     style={{borderRadius:'0px 0px 30px 30px',boxShadow:'0px 6px 30px 0px rgba(47, 50, 65, 0.20)'}}
@@ -230,7 +88,7 @@ export function Header() {
                         type="button"
                         className="w-full text-left flex items-center outline-none focus:outline-none"
                         onClick={() => {
-                          router.push("/services/consulting-services");
+                          // router.push("/services/consulting-services");
                           setIsServicesDropDownOpen(false);
                         }}
                       >
@@ -260,9 +118,9 @@ export function Header() {
                         <li
                           className="px-3 pb-1 pt-2 hover:bg-gray-100 "
                           onClick={() => {
-                            router.push(
-                              "/services/consulting-services/blockchain-consulting"
-                            );
+                            // router.push(
+                            //   "/services/consulting-services/blockchain-consulting"
+                            // );
                             setIsServicesDropDownOpen(false);
                           }}
                         >
@@ -280,9 +138,9 @@ export function Header() {
                         <li
                           className="px-3 py-1 hover:bg-gray-100 "
                           onClick={() => {
-                            router.push(
-                              "/services/consulting-services/managed-node"
-                            );
+                            // router.push(
+                            //   "/services/consulting-services/managed-node"
+                            // );
                             setIsServicesDropDownOpen(false);
                           }}
                         >
@@ -300,9 +158,9 @@ export function Header() {
                         <li
                           className="px-3 py-1 hover:bg-gray-100 "
                           onClick={() => {
-                            router.push(
-                              "/services/consulting-services/staking-api"
-                            );
+                            // router.push(
+                            //   "/services/consulting-services/staking-api"
+                            // );
                             setIsServicesDropDownOpen(false);
                           }}
                         >
@@ -319,9 +177,9 @@ export function Header() {
                         </li>
                         <li className="px-3 py-1 hover:bg-gray-100 "
                           onClick={() => {
-                            router.push(
-                              "/services/consulting-services/research"
-                            );
+                            // router.push(
+                            //   "/services/consulting-services/research"
+                            // );
                             setIsServicesDropDownOpen(false);
                           }}
                         >
@@ -338,9 +196,9 @@ export function Header() {
                         </li>
                         <li className="px-3 pt-1 pb-3 hover:bg-gray-100 hover:rounded-b-[30px] "
                           onClick={() => {
-                          router.push(
-                            "/services/consulting-services/data-solutions"
-                          );
+                          // router.push(
+                          //   "/services/consulting-services/data-solutions"
+                          // );
                           setIsServicesDropDownOpen(false);
                         }}>
                       
@@ -359,7 +217,7 @@ export function Header() {
                     </li>
                     <li
                       onClick={() => {
-                        router.push("/services/custom-software-development");
+                        // router.push("/services/custom-software-development");
                         setIsServicesDropDownOpen(false);
                       }}
                       className="cursor-pointer rounded-md px-3 py-1 hover:bg-gray-100 "
@@ -377,7 +235,7 @@ export function Header() {
                     </li>
                     <li
                       onClick={() => {
-                        router.push("/services/ui-ux-services");
+                        // router.push("/services/ui-ux-services");
                         setIsServicesDropDownOpen(false);
                       }}
                       className="rounded-md px-3 py-2 hover:bg-gray-100  cursor-pointer"
@@ -395,7 +253,7 @@ export function Header() {
                     </li>
                     <li
                       onClick={() => {
-                        router.push("/services/nft-development");
+                        // router.push("/services/nft-development");
                         setIsServicesDropDownOpen(false);
                       }}
                       className="rounded-md px-3 pt-1 pb-3 hover:bg-gray-100 hover:rounded-b-[30px] cursor-pointer"
@@ -410,26 +268,25 @@ export function Header() {
                           </svg>
                         </span>
                         <span>
-                          <Link
+                          <a
                             href="/services/nft-development"
                             className="hover:text-[#28118A] text-[#2F3241] nav_bar_font text-[16px]"
                           >
                             NFT Development
-                          </Link>
+                          </a>
                         </span>
                       </div>
                     </li>
                   </ul>
-                )}
               </div>
 
               {/* Company */}
-              <NavDropdown
+              <div
                 title="Company"
                 id="basic-nav-dropdown3"
                 className="text-[#2F3241] hover:text-[#28118A]"
               >
-                <NavDropdown.Item>
+                <div>
                   <div className="flex justify-start items-center">
                     <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="8" height="20" viewBox="0 0 8 20" fill="none">
@@ -437,17 +294,17 @@ export function Header() {
                     </svg>
                     </span>
                     <span className="flex justify-start items-center">
-                      <Link
+                      <a
                         href="/about-us"
                         className="hover:text-[#28118A] text-[#2F3241] nav_bar_font"
                       >
                         About Us
-                      </Link>
+                      </a>
                     </span>
                   </div>
-                </NavDropdown.Item>
+                </div>
 
-                <NavDropdown.Item>
+                <div>
                   <div className="flex justify-start items-center">
                     <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 20" fill="none">
@@ -455,53 +312,53 @@ export function Header() {
                     </svg>
                     </span>
                     <span className="flex justify-start items-center">
-                      <Link
+                      <a
                         href="/join-us"
                         className="hover:text-[#28118A] text-[#2F3241] nav_bar_font"
                       >
                         Join our team
-                      </Link>
+                      </a>
                     </span>
                   </div>
-                </NavDropdown.Item>
+                </div>
 
-                <NavDropdown.Item>
+                <div>
                   <div className="flex justify-start items-center">
-                    <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
+                    {/* <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
                       <Icons name="blogs" height={25} width={20} />
-                    </span>
+                    </span> */}
                     <span className="flex justify-start items-center">
-                      <Link
+                      <a
                         href="/blog"
                         className="hover:text-[#28118A] text-[#2F3241] nav_bar_font"
                       >
                         Blogs
-                      </Link>
+                      </a>
                     </span>
                   </div>
-                </NavDropdown.Item>
-                <NavDropdown.Item className="hover:rounded-b-[33px]">
+                </div>
+                <div className="hover:rounded-b-[33px]">
                   <div className="flex justify-start items-center">
-                    <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
+                    {/* <span className="min-w-[35px] max-w-[35px] min-h-[35px] max-h-[35px] rounded-[10px] flex justify-center items-center mr-2">
                       <Icons
                         name="become-an-affilliate"
                         height={25}
                         width={20}
                       />
-                    </span>
+                    </span> */}
                     <span className="flex justify-start items-center nav_bar_font ">
-                      <Link
+                      <a
                         href="/affiliate-marketing"
                         className="hover:text-[#28118A] text-[#2F3241]"
                       >
                         Become an affiliate
-                      </Link>
+                      </a>
                     </span>
                   </div>
-                </NavDropdown.Item>
-              </NavDropdown>
+                </div>
+              </div>
 
-              <Link
+              <a
                 href="https://docs.coindelta.io/"
                 className={
                   pathname === "https://docs.coindelta.io/"
@@ -510,7 +367,7 @@ export function Header() {
                 }
               >
                 Docs
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -522,7 +379,316 @@ export function Header() {
           />
         </div>
       </div>
-      {/* <div className="w-[100%]"><BarLoader color='#250C8E' width={1600} /></div> */}
     </nav>
+  );
+}
+
+          
+          
+export function SwipeableTemporaryDrawer({ setHideLogo, hideLogo }) {
+  // const [isConsultingServicesOpen, setIsConsultingServicesOpen] =
+  //   React.useState(true);
+  const [isServicesDropDownOpen, setIsServicesDropDownOpen] =
+    React.useState(false);
+  // const router = useRouter();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const toggleDrawer = (anchor, open, path) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    if (path) {
+      router.push(path);
+    }
+    setState({ ...state, [anchor]: open });
+    setHideLogo(!hideLogo);
+  };
+  const list = (anchor) => (
+    // {isOpen?
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : "150px" }}
+      role="presentation"
+    >
+      <div className="flex justify-between p-4 header">
+        <a href="/">
+          <img
+            // eslint-disable-next-line no-undef
+            src={`${process.env.imageBasePath}/images/logo.webp`}
+            alt="coindelta-logo"
+            width={160}
+            height={60}
+          />
+        </a>
+        <p
+          onClick={toggleDrawer(anchor, false)}
+          className="text-[22px] font-bold cursor-pointer"
+        >
+          <>&#9747;</>
+        </p>
+      </div>
+
+      <List >
+        <ListItem
+        className="flex items-center justify-center px-[11%]"
+          onClick={toggleDrawer(anchor, false, "/")}
+          onKeyDown={toggleDrawer(anchor, false)}
+          disablePadding
+        >
+          <ListItemButton>
+            {/* <ListItemIcon>
+              <Icons name="home"/>
+            </ListItemIcon> */}
+           <span className='ml-2'>
+            <ListItemText primary="Home" />
+            </span> 
+          </ListItemButton>
+        </ListItem>
+
+        <div className="group relative bg-[#fff] flex items-center justify-start z-[999] ml-[40px]">
+          {/* <span className='min-w-[25px] max-w-[25px] h-full'>
+              <Icons name="services"/>
+          </span> */}
+          <button
+            type="button"
+            onClick={() => setIsServicesDropDownOpen(!isServicesDropDownOpen)}
+            className="css-10hburv-MuiTypography-root outline-none bg-[#fff] focus:outline-none py-[6px] flex items-center justify-center px-1"
+          >
+            Services
+            {isServicesDropDownOpen ? (
+              <span className="ml-[-4px]">
+                <svg
+                  className="fill-current transform -rotate-180 transition duration-150 ease-in-out"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  id="arrow-drop-down"
+                >
+                  <path fill="none" d="M0 0h24v24H0V0z"></path>
+                  <path d="m7 10 5 5 5-5H7z"></path>
+                </svg>
+              </span>
+            ) : (
+              <span className="ml-[-4px]">
+                <svg
+                  className="fill-current transform transition duration-150 ease-in-out"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  id="arrow-drop-down"
+                >
+                  <path fill="none" d="M0 0h24v24H0V0z"></path>
+                  <path d="m7 10 5 5 5-5H7z"></path>
+                </svg>
+              </span>
+            )}
+          </button>
+          {!isServicesDropDownOpen ? (
+            <></>
+          ) : (
+            <ul className="bg-[#fff] left-[20px] top-[35px] transform scale-100 absolute transition duration-150 ease-in-out origin-top min-w-[180px] pb-2" style={{borderRadius:'0px 0px 30px 30px',boxShadow:'0px 6px 30px 0px rgba(47, 50, 65, 0.20)'}}>
+              <li className="rounded-md px-3 py-1 hover:bg-gray-100">
+                <button
+                  type="button"
+                  className="w-full text-left flex items-center outline-none focus:outline-none"
+                   onClick={toggleDrawer(
+                    anchor,
+                    false,
+                    "/services/consulting-services"
+                  )}
+                  onKeyDown={toggleDrawer(anchor, false)}
+                >
+                  <span className="w-full text-left flex items-center outline-none focus:outline-none">
+                    <span className="pr-1 flex-1 hover:text-[#28118A] text-[#2F3241] nav_bar_font text-[14px]">
+                      Consulting Services
+                    </span>
+                    <span className="mr-auto">
+                      <svg
+                        className="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <ul
+                  
+                  onClick={toggleDrawer(
+                    anchor,
+                    false,
+                    "/services/consulting-services/blockchain-consulting"
+                  )}
+                  onKeyDown={toggleDrawer(anchor, false)}
+                  className="bg-white cursor-pointer rounded-md absolute lg:top-0 top-[33px] lg:right-[2px] right-[221px] z-[999] transition duration-150 ease-in-out origin-top-left min-w-full"
+                >
+                  <li className="px-3 py-1 hover:bg-gray-100">
+                    Blockchain Consulting
+                  </li>
+                </ul>
+              </li>
+              <li
+                onClick={toggleDrawer(
+                  anchor,
+                  false,
+                  "/services/custom-software-development"
+                )}
+                onKeyDown={toggleDrawer(anchor, false)}
+                className="cursor-pointer rounded-md px-3 py-1 hover:bg-gray-100 text-[14px] hover:text-[#28118A] text-[#2F3241] nav_bar_font"
+              >
+                Custom Software Development
+              </li>
+              <li
+                onClick={toggleDrawer(
+                  anchor,
+                  false,
+                  "/services/ui-ux-development"
+                )}
+                onKeyDown={toggleDrawer(anchor, false)}
+                className="rounded-md px-3 py-1 hover:bg-gray-100 cursor-pointer text-[14px]"
+              >
+                UI/UX Development
+              </li>
+              <li
+               onClick={toggleDrawer(
+                anchor,
+                false,
+                "/services/nft-development"
+              )}
+              onKeyDown={toggleDrawer(anchor, false)}
+                className="rounded-md px-3 py-1 hover:bg-gray-100 cursor-pointer text-[14px]"
+              >
+                Nft Development
+              </li>
+            </ul>
+          )}
+        </div>
+        
+          {/* Company */}
+        <ListItem className="flex items-center justify-start py-2 ml-[16px]">
+          <span className='px-2'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" fill="none">
+            <path d="M1 16.9794H2V4.20887C2.00003 3.89076 2.09914 3.58072 2.28328 3.32268C2.46743 3.06465 2.72727 2.8717 3.026 2.77118L11.026 0.0776547C11.2515 0.00178664 11.4915 -0.0188759 11.7264 0.0173688C11.9614 0.0536135 12.1844 0.145728 12.3772 0.286125C12.5699 0.426522 12.7269 0.611183 12.8352 0.824895C12.9435 1.03861 13 1.27526 13 1.51534V16.9794H14V7.87634C14 7.80163 14.0165 7.72786 14.0482 7.66035C14.0798 7.59283 14.1259 7.53326 14.1831 7.48591C14.2403 7.43856 14.3072 7.40461 14.3789 7.38652C14.4507 7.36843 14.5255 7.36664 14.598 7.38128L16.794 7.82582C17.1339 7.89447 17.4398 8.07993 17.6597 8.35069C17.8795 8.62145 17.9998 8.96078 18 9.311V16.9794H19C19.2652 16.9794 19.5196 17.0858 19.7071 17.2753C19.8946 17.4647 20 17.7217 20 17.9897C20 18.2576 19.8946 18.5146 19.7071 18.7041C19.5196 18.8936 19.2652 19 19 19H1C0.734784 19 0.48043 18.8936 0.292893 18.7041C0.105357 18.5146 0 18.2576 0 17.9897C0 17.7217 0.105357 17.4647 0.292893 17.2753C0.48043 17.0858 0.734784 16.9794 1 16.9794Z" fill="#2F3241"/>
+          </svg>
+          </span>
+            <div title="Company" id="basic-nav-dropdown"className="text-center css-10hburv-MuiTypography-root">
+                <div onKeyDown={toggleDrawer(anchor, false)}  onClick={toggleDrawer(
+                anchor,
+                false,
+                "/about-us"
+              )}>
+                  <span className="flex justify-start items-center span_font">
+                  <a
+                    href="/about-us"
+                  >
+                    About Us
+                  </a>
+                  </span>
+                </div>
+                <div onClick={toggleDrawer(
+                anchor,
+                false,
+                "/join-us"
+              )}
+              onKeyDown={toggleDrawer(anchor, false)}>
+                  <span className="flex justify-start items-center span_font">
+                  <a
+                href="/join-us">
+                Join Our Team
+              </a>
+                  </span>
+                </div>
+
+                <div onClick={toggleDrawer(
+                anchor,
+                false,
+                "/blog"
+              )}
+              onKeyDown={toggleDrawer(anchor, false)}>
+                  <span className="flex justify-start items-center span_font">
+                  <a
+                  href="/blog"
+                  >
+                    Blogs
+                  </a>
+                  </span>
+                </div>
+
+                <div onClick={toggleDrawer(
+                anchor,
+                false,
+                "/affiliate-marketing"
+              )}
+              onKeyDown={toggleDrawer(anchor, false)}>
+                <span className="flex justify-start items-center span_font">
+                    <a href="/affiliate-marketing">Become an affiliate</a>
+                  </span>
+                </div>
+              </div>
+
+         </ListItem>
+         
+        <ListItem
+        className="px-[11%] flex items-center justify-start"
+          onClick={toggleDrawer(anchor, false, "https://docs.coindelta.io/")}
+          onKeyDown={toggleDrawer(anchor, false)}
+          disablePadding
+        >
+          <ListItemButton>
+            <ListItemIcon><svg xmlns="http://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 15 18" fill="none">
+              <path d="M9.84359 5.64872H9.2188V0H1.40684C0.629082 0 0 0.614667 0 1.37376L0 16.6262C0 17.3853 0.629082 18 1.40598 18H13.594C14.3709 18 15 17.3853 15 16.6262V5.64872H9.84359ZM9.37522 14.4279H3.28034V13.2825H9.3735V14.4279H9.37522ZM11.7188 11.6795H3.2812V10.5341H11.7188V11.6795ZM11.7188 8.93114H3.2812V7.78662H11.7188V8.93114ZM9.84359 5.03825H15L9.84359 0V5.03825Z" fill="#2F3241"/>
+            </svg></ListItemIcon>
+            <span className='ml-2'>
+              <ListItemText primary="Docs" /></span>
+          </ListItemButton>
+        </ListItem>
+        
+      </List>
+    </Box>
+  );
+  return (
+    <div className="sm:pl-[3rem] container-padding-x h-[60px] flex justify-center items-center">
+      {["top"].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <div className="flex">
+            <span
+              onClick={toggleDrawer(anchor, true)}
+              className="cursor-pointer text-[25px] flex"
+            >
+              &#9776;
+            </span>
+            {!hideLogo && (
+              <a href="/">
+                <img
+                  // eslint-disable-next-line no-undef
+                  src={`${process.env.imageBasePath}/images/logo.webp`}
+                  alt="logo"
+                  width="160"
+                  height="60"
+                  className="mt-1 ml-2"
+                />
+              </a>
+            )}
+          </div>
+          <SwipeableDrawer
+            anchor={anchor}
+            open={state[anchor]}
+            variant="persistent"
+            onClose={toggleDrawer(anchor, false)}
+            onOpen={toggleDrawer(anchor, true)}
+          >
+            {list(anchor)}
+          </SwipeableDrawer>
+        </React.Fragment>
+      ))}
+    </div>
   );
 }

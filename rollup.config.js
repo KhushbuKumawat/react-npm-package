@@ -11,7 +11,7 @@ export default defineConfig({
   output: [
     {
       file: 'dist/index.js',
-      format: 'cjs',
+      format: 'es',
       sourcemap: true,
     },
     {
@@ -31,6 +31,8 @@ export default defineConfig({
       presets: ['@babel/preset-env', '@babel/preset-react'],
     }),
     postcss({
+      modules: true, 
+      extensions: ['.css'],
       extract: true,  // Extract CSS into separate file
       minimize: true, // Minify CSS
     }),
