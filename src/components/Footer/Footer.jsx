@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 
 export function Footer() {
-  // const pathname = usePathname();
   const ref = useRef(null);
   const [isMouseIn, setIsMouseIn] = useState("");
   return (
@@ -38,7 +37,6 @@ export function Footer() {
                 aria-label="Linkedin"
               >
                 LinkedIn
-                {/* <Icons name="linkedIn-icon"  fill={isMouseIn === "LinkedIn" ? "#0077B7" : "#2F3241"} stroke={isMouseIn === "LinkedIn" ? "#0077B7" : "#2F3241"}/> */}
               </a>
               <a
               onMouseEnter={() => setIsMouseIn("Twitter")}
@@ -50,7 +48,6 @@ export function Footer() {
                 aria-label="Twitter"
               >
                 Twitter
-                {/* <Icons name="twitter-icon"  fill={isMouseIn  === "Twitter"? "#1D9BF0" : "#2F3241"} stroke={isMouseIn === "Twitter" ? "#1D9BF0" : "#2F3241"}/> */}
               </a>
               <a
               onMouseEnter={() => setIsMouseIn("facebook")}
@@ -62,7 +59,6 @@ export function Footer() {
                 aria-label="facebook"
               >
                 Facebook
-                {/* <Icons name="facebook-icon"  fill={isMouseIn  === "facebook"? "#0573E7" : "#2F3241"} stroke={isMouseIn === "facebook" ? "#0573E7" : "#2F3241"}/> */}
               </a>
               <a
               onMouseEnter={() => setIsMouseIn("youtube")}
@@ -74,7 +70,6 @@ export function Footer() {
                 aria-label="Youtube"
               >
                 Youtube
-                {/* <Icons name="youtube-icon"  fill={isMouseIn  === "youtube"? "#FF0000" : "#2F3241"} stroke={isMouseIn === "youtube" ? "#FF0000" : "#2F3241"}/> */}
               </a>
             </span>
           </span>
@@ -83,9 +78,6 @@ export function Footer() {
             Supported Networks
             </h3>
             <span className="flex py-2 nav_bar_font">
-              <span className="mr-2">
-                <Icons name="avax-icon" />
-              </span>
               <a
                 href={"/networks/avalanche"}
                 className="hover:text-[#28118A] text-[#2F3241]"
@@ -94,25 +86,17 @@ export function Footer() {
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="etherium-icon" />
-              </span> */}
               <a href={"/networks/etherium"} className="hover:text-[#28118A] text-[#2F3241]">
                 Stake Ethereum 2.0 (ETH)
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="polkadot-icon" />
-              </span> */}
+            
               <a href={"/networks/polkadot"} className="hover:text-[#28118A] text-[#2F3241]">
                 Stake Polkadot (DOT)
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="chainlink-icon" />
-              </span> */}
               <a
                 href={"/networks/chainlink"}
                 className="hover:text-[#28118A] text-[#2F3241]"
@@ -121,9 +105,6 @@ export function Footer() {
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="stake-ssv-icon" />
-              </span> */}
               <a
                 href={"/networks/stake-ssv"}
                 className="hover:text-[#28118A] text-[#2F3241]"
@@ -134,33 +115,22 @@ export function Footer() {
           </span>
           <span className="lg:pt-[35px] pt-[0px] ">
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="mr-2">
-                <Icons name="stake-graph" />
-              </span> */}
               <a href={"/networks/graph"} className="hover:text-[#28118A] text-[#2F3241]">
                 Stake The Graph (GRT)
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="etherium-icon" />
-              </span> */}
               <a href={"/networks/render"} className="hover:text-[#28118A] text-[#2F3241]">
                 Stake Render (RNDR)
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="polkadot-icon" />
-              </span> */}
+            
               <a href={"/networks/arweave"} className="hover:text-[#28118A] text-[#2F3241]">
                 Stake Arweave (AR)
               </a>
             </span>
             <span className="flex py-2 nav_bar_font">
-              {/* <span className="w-[25px] h-[25px] bg-white flex justify-center items-center rounded-full mr-2">
-                <Icons name="chainlink-icon" />
-              </span> */}
               <a href={"/networks/cosmos"} className="hover:text-[#28118A] text-[#2F3241]">
                 Stake Cosmos (ATOM)
               </a>

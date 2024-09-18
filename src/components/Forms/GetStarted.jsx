@@ -1,14 +1,4 @@
 import React from "react";
-// import Image from "next/image";
-// import {
-//   TextField,
-//   Select,
-//   FormControl,
-//   MenuItem,
-//   InputLabel,
-// } from "@mui/material";
-// import MuiPhoneNumber from "material-ui-phone-number";
-
 export function GetStarted() {
   return (
     <div className="section-padding-x py-11 mt-6">

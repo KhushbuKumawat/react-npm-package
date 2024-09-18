@@ -1,379 +1,83 @@
-import React from "react";
-import { useState } from "react";
-// import Icons from "./../icons";
-// import {
-//   TextField,
-//   Select,
-//   FormControl,
-//   MenuItem,
-//   InputLabel,
-//   Checkbox,
-// } from "@mui/material";
-// import MuiPhoneNumber from "material-ui-phone-number";
-// import axios from "axios";
-// import Link from "next/link";
-// import ApiService from "../../services/ApiService";
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import React from 'react'
 
 export function Getintouch() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setmessage] = useState("");
-  const [error, setError] = useState("");
-  const [company, setCompany] = useState("");
-  const [comunicationMethod, setcomunicationMethod] = useState("Phone Number");
-  const [discribeType, setdiscribeType] = useState("Individual Investor");
-  const [number, setNumber] = useState("");
-  const [IsCheckboxTrue, setIsCheckboxTrue] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "firstName") {
-      setFirstName(value);
-    } else if (name === "lastName") {
-      setLastName(value);
-    } else if (name === "email") {
-      setEmail(value);
-    } else if (name === "message") {
-      setmessage(value);
-    } else if (name === "company") {
-      setCompany(value);
-    } else if (name === "comunicationMethod") {
-      setcomunicationMethod(value);
-    } else if (name === "discribeType") {
-      setdiscribeType(value);
-    }
-  };
-  const handleChangePhoneNumber = (value) => {
-    setNumber(value);
-  };
-
-  const validation = () => {
-    let errors = {};
-    let formIsValid = true;
-
-    if (!firstName) {
-      formIsValid = false;
-      errors["Firstname"] = "*Please enter a valid first name.";
-    }
-
-    if (!lastName) {
-      formIsValid = false;
-      errors["Lastname"] = "*Please enter a valid last name.";
-    }
-    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-
-    if (!email || regex.test(email) === false) {
-      formIsValid = false;
-      errors["Email"] = "*Please enter your valid Email.";
-    }
-
-    if (!number) {
-      formIsValid = false;
-      errors["PhoneNumber"] = "*Please provide valid phone number.";
-    }
-
-    if (!discribeType) {
-      formIsValid = false;
-      errors["describe"] = "*Please select a best describe you.";
-    }
-
-    if (!comunicationMethod) {
-      formIsValid = false;
-      errors["IndividualInvestor"] =
-        "*Please select a method of communication.";
-    }
-    if (!message) {
-      formIsValid = false;
-      errors["Message"] = "*Please enter your message.";
-    }
-
-    if (!IsCheckboxTrue || IsCheckboxTrue == false) {
-      formIsValid = false;
-      errors["IsCheckboxTrue"] =
-        "*Please indicate that you have read and agree with privacy and policy.";
-    }
-    setError(errors);
-    return formIsValid;
-  };
-
-  const handleSubmit = () => {
-    if (validation()) {
-      console.log("error", error);
-      const data = {
-        firstname: firstName,
-        lastname: lastName,
-        email: email,
-        message: message,
-        company_name: company,
-        preferred_method: comunicationMethod,
-        what_describes_you: discribeType,
-        mobile_no: number,
-      };
-      // axios
-      //   .post(
-      //     "https://ikxl2f3jzh6cufqtr3hbwepnmm0meelh.lambda-url.us-west-2.on.aws/",
-      //     data
-      //   )
-      //   .then(() => {
-      //     setFirstName("");
-      //     setLastName("");
-      //     setEmail("");
-      //     setmessage("");
-      //     setCompany("");
-      //     setcomunicationMethod("Phone Number");
-      //     setdiscribeType("Individual Investor");
-      //     setNumber("");
-      //     toast.success("Thanks for reaching out. We'll get back to you soon!");
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //     toast.error("Something is wrong!");
-      //   });
-
-      // ApiService.post("api/get-in-touches", { data })
-      //   .then(() => {
-      //     setFirstName("");
-      //     setLastName("");
-      //     setEmail("");
-      //     setmessage("");
-      //     setCompany("");
-      //     setcomunicationMethod("Phone Number");
-      //     setdiscribeType("Individual Investor");
-      //     setNumber("");
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //     toast.error("Something is wrong!");
-      //   });
-    }
-  };
   return (
-    <div className="mt-11 bg-[#F4F6FA]">
-      <section className="grid grid-cols-12 rounded-xl mb-7 overflow-hidden p-[30px]">
-        <div className="xl:pt-16 lg:pt-16 pt-4 lg:px-16 px-8 pb-10 xl:col-span-5 col-span-12 border-2">
-          <h2 className="leading-[45px] pb-2 text-[#000] md:text-[50px] text-[40px] font-bold">
-            Get In <span className="text-[#28118A]"> Touch</span>
-          </h2>
-          <div
-            className="flex md:flex-row lg:flex-row xl:flex-row flex-col md:mt-[43px] p-4"
-            style={{
-              borderRadius: "8px",
-              background: "#ECE9F5",
-              boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-            }}
-          >
-            {/* <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
-              <Icons name="message-icon" />
-            </span> */}
-            <div className="mx-[0px] md:mx-[10px] lg:mx-[10px] xl:mx-[10px] lg:my-[0px] my-[10px]">
-              <h3 className="text-[#28118A] text-[22px] font-semibold">
-                General Inquiries
-              </h3>
-              <h4 className="text-[#000] font-bold text-[16px] p-1">
-                info@coindelta.io
-              </h4>
-            </div>
-          </div>
-
-          <div
-            className="flex md:flex-row lg:flex-row xl:flex-row flex-col mt-[43px] p-4"
-            style={{
-              borderRadius: "8px",
-              background: "#ECE9F5",
-              boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-            }}
-          >
-            {/* <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
-              <Icons name="press-icon" />
-            </span> */}
-            <div className="mx-[0px] md:mx-[10px] lg:mx-[10px] xl:mx-[10px] lg:my-[0px] my-[10px]">
-              <h3 className="text-[#28118A] text-[22px] font-semibold ">
-                Media Inquiries
-              </h3>
-              <h4 className="text-[#000] font-bold text-[16px] p-1">
-                press@coindelta.io
-              </h4>
-            </div>
-          </div>
-          <div
-            className="flex md:flex-row lg:flex-row xl:flex-row flex-col mt-[43px] p-4"
-            style={{
-              borderRadius: "8px",
-              background: "#ECE9F5",
-              boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-            }}
-          >
-            {/* <span className="min-w-[56px] max-w-[56px] h-[56px] rounded-md flex items-center justify-center bg-[#28118A]">
-              <Icons name="location-icon" />
-            </span> */}
-            <div className="mx-[0px] md:mx-[10px] lg:mx-[10px] xl:mx-[10px] lg:my-[0px] my-[10px] ">
-              <h3 className="text-[#28118A] text-[22px] font-semibold ">
-                Location
-              </h3>
-              <h4 className="text-[#000] font-bold text-[16px] p-1">
-                30 North Gould Street, Sheridan, WY, 82801
-              </h4>
-            </div>
-          </div>
+ <div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
+    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>
+    <p class="mt-2 text-lg leading-8 text-gray-600">This form uses fabform.io to save form submissions.</p>
+  </div>
+  <form action="https://fabform.io/f/xxxxx" method="post" class="mx-auto mt-16 max-w-xl sm:mt-20">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div>
+        <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
+        <div class="mt-2.5">
+          <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
         </div>
-        <div className="lg:py-16 py-8 lg:pr-[60px] px-[30px] xl:col-span-7 col-span-12">
-          <div className="w-full cursor-pointer">
-            <div className="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-6">
-              <div className="">
-                <TextField
-                  id="firstName"
-                  label="First Name"
-                  variant="outlined"
-                  name="firstName"
-                  value={firstName}
-                  style={{
-                    borderRadius: "8px",
-                    background: "#ECE9F5",
-                    boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                  }}
-                  onChange={handleChange}
-                />
-                <div className="text-[12px] text-red-500">
-                  {error.Firstname}
-                </div>
-              </div>
-              <div className="">
-                <TextField
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  value={lastName}
-                  variant="outlined"
-                  style={{
-                    borderRadius: "8px",
-                    background: "#ECE9F5",
-                    boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                  }}
-                  onChange={handleChange}
-                />
-                <div className="text-[12px] text-red-500">{error.Lastname}</div>
-              </div>
-            </div>
-            <div className="grid xl:grid-cols-2 grid-cols-1 gap-4 mb-6">
-              <div className="">
-                <TextField
-                  label="Email"
-                  variant="outlined"
-                  name="email"
-                  value={email}
-                  id="email"
-                  style={{
-                    borderRadius: "8px",
-                    background: "#ECE9F5",
-                    boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                  }}
-                  onChange={handleChange}
-                />
-                <div className="text-[12px] text-red-500">{error.Email}</div>
-              </div>
-              <div className="">
-                <TextField
-                  id="company"
-                  label="Company name"
-                  name="company"
-                  value={company}
-                  variant="outlined"
-                  style={{
-                    borderRadius: "8px",
-                    background: "#ECE9F5",
-                    boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                  }}
-                  onChange={handleChange}
-                />
-                <div className="text-[12px] text-red-500">
-                  {error.Companyname}
-                </div>
-              </div>
-            </div>
-
-            <FormControl className="w-full" style={{ backgroundColor: "#fff" }}>
-              <InputLabel id="comunicationMethodlabel">
-                Preferred Method of Communication
-              </InputLabel>
-              <Select
-                label="Preferred Method of Communication"
-                name="comunicationMethod"
-                value={comunicationMethod}
-                id="comunicationMethodid"
-                type="text"
-                style={{
-                  borderRadius: "8px",
-                  background: "#ECE9F5",
-                  boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                }}
-                onChange={handleChange}
-                defaultValue="Phone Number"
-              >
-                <MenuItem value={"Phone Number"}>Phone Number</MenuItem>
-                <MenuItem value={"WhatsApp"}>WhatsApp</MenuItem>
-                <MenuItem value={"Telegram"}>Telegram</MenuItem>
-                <MenuItem value={"WeChat"}>WeChat</MenuItem>
-                <MenuItem value={"Email Prefer"}>Email</MenuItem>
-              </Select>
-            </FormControl>
-            
-
-            <div className="flex flex-col">
-              <TextField
-                id="message"
-                label="Message"
-                name="message"
-                variant="outlined"
-                type="text"
-                value={message}
-                minRows={4}
-                multiline
-                style={{
-                  borderRadius: "8px",
-                  background: "#ECE9F5",
-                  boxShadow: "0px 30px 116px -16px rgba(211, 211, 211, 0.20)",
-                }}
-                onChange={handleChange}
-              />
-              <div className="text-[12px] text-red-500">{error.Message}</div>
-              <div className="flex flex-col items-start">
-                <div className="flex justify-center items-center pt-[15px]">
-                  <Checkbox
-                    {...label}
-                    required
-                    name="IsCheckboxTrue"
-                    onChange={() => setIsCheckboxTrue(!IsCheckboxTrue)}
-                  />
-                  <p>
-                    By clicking submit, you agree with our{" "}
-                    <span className="text-[#28118A]">
-                      <a href="/privacy-policy" target="_blank">
-                        Privacy Policy
-                      </a>
-                      .
-                    </span>
-                  </p>
-                </div>
-                <div className="text-[12px] text-red-500">
-                  {error.IsCheckboxTrue}
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className={
-                  "border-2 border-[#28118A] text-[#28118A] hover:text-white hover:bg-[#28118A] h-12 w-[200px] bg-grey-100 font-bold rounded-2xl mt-2 cursor-pointer"
-                }
-                onClick={handleSubmit}
-              >
-                Submit Message
-              </button>
-            </div>
-          </div>
+      </div>
+      <div>
+        <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
+        <div class="mt-2.5">
+          <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
         </div>
-      </section>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">Company</label>
+        <div class="mt-2.5">
+          <input type="text" name="company" id="company" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+        <div class="mt-2.5">
+          <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="phone-number" class="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
+        <div class="relative mt-2.5">
+          <div class="absolute inset-y-0 left-0 flex items-center">
+            <label for="country" class="sr-only">Country</label>
+            <select id="country" name="country" class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+              <option>US</option>
+              <option>CA</option>
+              <option>EU</option>
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
+        <div class="mt-2.5">
+          <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+        </div>
+      </div>
+      <div class="flex gap-x-4 sm:col-span-2">
+        <div class="flex h-6 items-center">
+          {/* <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" --> */}
+          <button type="button" class="flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+            <span class="sr-only">Agree to policies</span>
+            {/* <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" --> */}
+            <span aria-hidden="true" class="h-4 w-4 translate-x-0 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
+          </button>
+        </div>
+        <label class="text-sm leading-6 text-gray-600" id="switch-1-label">
+          By selecting this, you agree to our
+          <a href="#" class="font-semibold text-indigo-600">privacy&nbsp;policy</a>.
+        </label>
+      </div>
     </div>
-  );
+    <div class="mt-10">
+      <button type="submit" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk</button>
+    </div>
+  </form>
+</div>
+  )
 }
