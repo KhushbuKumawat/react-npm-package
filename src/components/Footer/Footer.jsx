@@ -6,12 +6,12 @@ export function Footer() {
   const [isMouseIn, setIsMouseIn] = useState("");
   return (
     <div className="">
-        <div
+        {/* <div
           className="container-padding-x "
           ref={ref}
         >
           <JoinOurTeam />
-        </div>
+        </div> */}
      
       <footer
         className="border-b-2 container-padding-x pb-[30px] pt-[60px] mt-[0px] z-[2] relative"
