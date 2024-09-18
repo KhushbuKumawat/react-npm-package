@@ -1,6 +1,6 @@
 {
   "name": "khushbu-react-component-library",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Created library for reusability of component",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
