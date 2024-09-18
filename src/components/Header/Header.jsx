@@ -26,11 +26,7 @@ export function Header() {
             <div className="flex items-center justify-between w-[45%]">
               <a
                 href="/"
-                className={
-                  pathname === "/"
-                    ? "flex justify-between items-center h-full text-[#28118A]"
-                    : "text-[#2F3241]"
-                }
+                className= "flex justify-between items-center h-full text-[#28118A]"
               >
                 Home
               </a>
@@ -360,11 +356,7 @@ export function Header() {
 
               <a
                 href="https://docs.coindelta.io/"
-                className={
-                  pathname === "https://docs.coindelta.io/"
-                    ? "flex justify-between items-center h-full"
-                    : "py-[20px] hover:text-[#28118A]"
-                }
+                className="flex justify-between items-center h-full"
               >
                 Docs
               </a>
