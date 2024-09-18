@@ -7,7 +7,7 @@ import React from "react";
 //   MenuItem,
 //   InputLabel,
 // } from "@mui/material";
-import MuiPhoneNumber from "material-ui-phone-number";
+// import MuiPhoneNumber from "material-ui-phone-number";
 
 export function GetStarted() {
   return (
@@ -96,7 +96,7 @@ export function GetStarted() {
                 <MenuItem value={"EmailPrefer"}>Email</MenuItem>
               </Select>
             </FormControl>
-            <div className="grid grid-cols-2 gap-4 my-6">
+            {/* <div className="grid grid-cols-2 gap-4 my-6">
               <MuiPhoneNumber
                 fullWidth
                 variant="outlined"
@@ -121,7 +121,7 @@ export function GetStarted() {
                   <MenuItem value={"EmailPrefer"}>Email</MenuItem>
                 </Select>
               </FormControl>
-            </div>
+            </div> */}
             <div className="flex flex-col">
               <TextField
                 id="outlined-basic"
